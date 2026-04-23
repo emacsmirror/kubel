@@ -614,7 +614,7 @@ Strips leading `*' mark indicator if present."
 (defun kubel--get-context-namespace ()
   "Utility function to return the proper context and namespace arguments."
   (append
-   (unless (equal kubel-context "")
+   (unless (or (equal kubel-context nil) (equal kubel-context ""))
      (list "--context" kubel-context))
    (unless (equal kubel-namespace "")
      (list "-n" kubel-namespace))))
